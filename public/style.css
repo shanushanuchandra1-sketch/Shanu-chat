@@ -5,23 +5,28 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #075e54, #128c7e);
+    background: #075e54;
     min-height: 100vh;
+    width: 100%;
+    margin: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 }
+
 
 .login-container {
     background: white;
-    width: 90%;
-    max-width: 380px;
-    padding: 35px 25px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    padding: 50px 25px 30px;
+    border-radius: 0;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    box-shadow: none;
 }
 
 h1 {
@@ -401,4 +406,74 @@ body::before {
 #chatMessages {
     background: transparent !important;
     position: relative;
+}
+/* AASHI MOBILE APP LAYOUT */
+
+html {
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 0 !important;
+    margin: 0;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#chatListScreen,
+#chatScreen {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+#chatListScreen {
+    overflow-y: auto;
+}
+
+#chatScreen {
+    display: flex;
+    flex-direction: column;
+}
+
+#chatMessages {
+    flex: 1;
+    min-height: 0;
+    height: auto !important;
+    overflow-y: auto;
+}
+
+#messageInput {
+    max-width: calc(100% - 90px);
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        padding: 45px 20px 25px;
+    }
+
+    #chatListScreen h1 {
+        padding: 20px;
+    }
+
+    #chatScreen {
+        border: none;
+    }
 }
