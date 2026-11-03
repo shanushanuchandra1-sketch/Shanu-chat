@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,27 +30,39 @@
 
     <div id="profileDisplay" hidden>
       <h2>My SHANU Profile</h2>
-     <img id="showPhoto" width="100" height="100" style="border-radius:50%; object-fit:cover;">
-     <h3 id="showName"></h3>     
-     <p id="showPhone"></p>
-<button id="openChatBtn">Open SHANU Chat</button>
+      <img id="showPhoto" width="100" height="100" style="border-radius:50%; object-fit:cover;">
+      <h3 id="showName"></h3>
+      <p id="showPhone"></p>
+      <button id="openChatBtn">Open SHANU Chat</button>
     </div>
   </div>
-<div class="login-container" id="chatScreen" hidden>
-  <h1>SHANU CHAT</h1>
 
-  <div id="chatMessages" style="height:300px; overflow-y:auto; border:1px solid #ccc; padding:10px;">
+  <div class="login-container" id="chatScreen" hidden>
+    <h1>SHANU CHAT</h1>
+
+    <input
+      id="receiverPhone"
+      type="tel"
+      maxlength="10"
+      placeholder="Friend's 10 digit number"
+    >
+
+    <p>Enter friend's number and press Enter</p>
+<button id="startChatBtn">Start Chat</button>
+    <div id="chatMessages" style="height:300px; overflow-y:auto; border:1px solid #ccc; padding:10px;">
+    </div>
+
+    <input
+      id="messageInput"
+      type="text"
+      placeholder="Type your message..."
+    >
+
+    <button id="sendBtn">Send Message</button>
   </div>
 
-  <input
-    id="messageInput"
-    type="text"
-    placeholder="Type your message..."
-  >
-
-  <button id="sendBtn">Send Message</button>
-</div>
-<script src="/socket.io/socket.io.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>

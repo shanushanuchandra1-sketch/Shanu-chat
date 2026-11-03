@@ -13,6 +13,7 @@ const showPhone = document.getElementById("showPhone");
 const showPhoto = document.getElementById("showPhoto");
 
 let currentUser = null;
+let activeRoom = null;
 
 loginBtn.addEventListener("click", () => {
   const phone = phoneInput.value.trim();
@@ -23,7 +24,6 @@ loginBtn.addEventListener("click", () => {
   }
 
   currentUser = { phone: "+91" + phone };
-
   loginScreen.hidden = true;
   profileScreen.hidden = false;
 
@@ -42,9 +42,9 @@ saveProfileBtn.addEventListener("click", () => {
 
   function saveData(photo) {
     const profile = {
-      name: name,
+      name,
       phone: currentUser.phone,
-      photo: photo
+      photo
     };
 
     localStorage.setItem("shanuProfile", JSON.stringify(profile));
@@ -52,9 +52,7 @@ saveProfileBtn.addEventListener("click", () => {
     showName.textContent = profile.name;
     showPhone.textContent = profile.phone;
 
-    if (photo) {
-      showPhoto.src = photo;
-    }
+    if (photo) showPhoto.src = photo;
 
     profileDisplay.hidden = false;
     alert("SHANU Profile Saved Successfully!");
@@ -68,36 +66,14 @@ saveProfileBtn.addEventListener("click", () => {
     saveData("");
   }
 });
-// SHANU Chat Connection
+
 const socket = io();
 
 const messageInput = document.getElementById("messageInput");
 const sendBtn = document.getElementById("sendBtn");
 const chatMessages = document.getElementById("chatMessages");
+const receiverPhone = document.getElementById("receiverPhone");
 
-function sendMessage() {
-  const message = messageInput.value.trim();
-
-  if (message === "") return;
-
-  socket.emit("chat message", message);
-  messageInput.value = "";
-}
-
-sendBtn.addEventListener("click", sendMessage);
-
-messageInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    sendMessage();
-  }
-});
-
-socket.on("chat message", (message) => {
-  const msg = document.createElement("p");
-  msg.textContent = message;
-  chatMessages.appendChild(msg);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-});
 const openChatBtn = document.getElementById("openChatBtn");
 const chatScreen = document.getElementById("chatScreen");
 
@@ -105,3 +81,67 @@ openChatBtn.addEventListener("click", () => {
   profileScreen.hidden = true;
   chatScreen.hidden = false;
 });
+
+function joinPrivateRoom() {
+  const receiver = receiverPhone.value.trim();
+alert("You entered: [" + receiver + "] Length: " + receiver.length);
+  if (!/^[0-9]{10}$/.test(receiver)) {
+    alert("Enter friend's 10 digit number");
+    return;
+  }
+
+  if (!currentUser) {
+    alert("Please login first");
+    return;
+  }
+
+  const receiverFull = "+91" + receiver;
+
+  if (receiverFull === currentUser.phone) {
+    alert("Enter a different mobile number");
+    return;
+  }
+
+  const members = [currentUser.phone, receiverFull].sort();
+  activeRoom = members.join("_");
+
+  socket.emit("join room", activeRoom);
+  chatMessages.textContent = "Private room connected!";
+}
+const startChatBtn = document.getElementById("startChatBtn");
+
+startChatBtn.addEventListener("click", () => {
+  joinPrivateRoom();
+});
+
+function sendMessage() {
+  const message = messageInput.value.trim();
+
+  if (!message) return;
+
+  if (!activeRoom) {
+    alert("First enter friend's number and press Enter");
+    return;
+  }
+
+  socket.emit("private message", {
+    roomId: activeRoom,
+    message,
+    sender: currentUser.phone
+  });
+
+  messageInput.value = "";
+}
+
+sendBtn.addEventListener("click", sendMessage);
+
+messageInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") sendMessage();
+});
+
+socket.on("private message", (data) => {
+  const msg = document.createElement("p");
+  msg.textContent = data.sender + ": " + data.message;
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+})
