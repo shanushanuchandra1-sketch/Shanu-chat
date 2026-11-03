@@ -477,3 +477,21 @@ body {
         border: none;
     }
 }
+/* AASHI SCREEN VISIBILITY FIX */
+
+[hidden] {
+    display: none !important;
+}
+
+html,
+body {
+    overflow: hidden;
+    height: 100%;
+}
+
+.login-container,
+#chatListScreen,
+#chatScreen {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
