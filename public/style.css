@@ -61,3 +61,344 @@ h1 {
     font-size: 13px;
 }
 
+.chat-time {
+    font-size: 11px;
+    color: #888;
+    margin-left: 6px;
+    font-weight: normal;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #101827;
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.chat-header button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 20px;
+}
+
+.friend-info h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.friend-info p {
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+#receiverPhone,
+#startChatBtn {
+    display: none;
+}
+
+.friend-info p {
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+#receiverPhone,
+#startChatBtn {
+    display: none;
+}
+
+
+
+/* WhatsApp Web Layout */
+
+body {
+    background: #d1d7db;
+    display: block;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#chatListScreen,
+#chatScreen {
+    width: 100%;
+    max-width: 1200px;
+    height: calc(100vh - 40px);
+    margin: auto;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+#chatListScreen {
+    background: #fff;
+    text-align: left;
+}
+
+#chatListScreen h1 {
+    background: #075e54;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+#chatListScreen h3 {
+    padding: 15px;
+    margin: 0;
+}
+
+#newChatBtn {
+    margin: 10px 15px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #128c7e;
+    color: white;
+}
+
+#chatList {
+    padding: 10px;
+}
+
+#chatScreen {
+    background: #efeae2;
+    text-align: left;
+}
+
+.chat-header {
+    background: #075e54;
+    border-radius: 0;
+    margin: 0;
+    min-height: 75px;
+}
+
+#chatMessages {
+    height: calc(100% - 150px) !important;
+    overflow-y: auto;
+    background: #efeae2;
+    border: none !important;
+    padding: 20px !important;
+}
+
+#messageInput {
+    width: 75%;
+    padding: 14px;
+    border: none;
+    border-radius: 25px;
+    margin: 10px;
+}
+
+#sendBtn {
+    padding: 13px 18px;
+    border: none;
+    border-radius: 25px;
+    background: #128c7e;
+    color: white;
+}
+
+
+/* Mobile Responsive Design */
+
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    #chatListScreen,
+    #chatScreen {
+        width: 100%;
+        height: 100vh;
+        max-width: none;
+        border-radius: 0;
+    }
+
+    #chatListScreen h1 {
+        font-size: 22px;
+        padding: 18px;
+    }
+
+    .chat-header {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    #chatMessages {
+        height: calc(100% - 145px) !important;
+        padding: 12px !important;
+    }
+
+    #messageInput {
+        width: calc(100% - 90px);
+        margin: 8px 5px;
+    }
+
+    #sendBtn {
+        padding: 12px;
+    }
+}
+
+@media (min-width: 601px) {
+    #chatListScreen,
+    #chatScreen {
+        max-width: 1050px;
+        height: calc(100vh - 80px);
+    }
+}
+@media (min-width: 601px) {
+    #chatListScreen,
+    #chatScreen {
+        max-width: 900px;
+        height: calc(100vh - 120px);
+    }
+}
+/* SHANU CHAT Premium Look */
+
+body {
+    background: linear-gradient(135deg, #dceee9, #c8d9e8);
+}
+
+#chatListScreen,
+#chatScreen {
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+}
+
+#chatListScreen h1 {
+    background: linear-gradient(135deg, #075e54, #128c7e);
+    padding: 24px;
+    letter-spacing: 2px;
+}
+
+.chat-header {
+    background: linear-gradient(135deg, #075e54, #128c7e);
+    padding: 18px;
+}
+
+.chat-header button {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+}
+
+#chatList {
+    padding: 15px;
+}
+
+#chatList > div {
+    padding: 16px;
+    margin-bottom: 10px;
+    background: #f7faf9;
+    border-radius: 12px;
+    border: 1px solid #e5eeeb;
+}
+
+#chatList > div:active {
+    background: #e4f5ef;
+}
+
+#messageInput {
+    background: white;
+    border: 1px solid #dce5e1;
+    outline: none;
+}
+
+#sendBtn {
+    background: linear-gradient(135deg, #075e54, #128c7e);
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(7,94,84,0.2);
+}
+
+#sendBtn:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 600px) {
+    #chatListScreen,
+    #chatScreen {
+        border-radius: 0;
+    }
+}
+/* Animated Color Bubble Background */
+
+body {
+    background: linear-gradient(
+        120deg,
+        #d8f3dc,
+        #dbeafe,
+        #fce7f3,
+        #e0f2fe
+    );
+    background-size: 400% 400%;
+    animation: colorFlow 12s ease infinite;
+    position: relative;
+}
+
+@keyframes colorFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 15% 20%, #25d36655 0 45px, transparent 47px),
+        radial-gradient(circle at 80% 25%, #38bdf855 0 65px, transparent 67px),
+        radial-gradient(circle at 25% 80%, #a78bfa55 0 55px, transparent 57px),
+        radial-gradient(circle at 85% 85%, #fb718555 0 75px, transparent 77px);
+    background-size: 100% 100%;
+    animation: bubbleMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes bubbleMove {
+    from { transform: translateY(-12px) scale(1); }
+    to { transform: translateY(15px) scale(1.04); }
+}
+
+/* Animated bubbles inside chat */
+
+#chatScreen {
+    position: relative;
+    isolation: isolate;
+    background: linear-gradient(
+        120deg,
+        #d8f3dc,
+        #dbeafe,
+        #fce7f3,
+        #e0f2fe
+    );
+    background-size: 400% 400%;
+    animation: colorFlow 12s ease infinite;
+}
+
+#chatScreen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 15% 20%, #25d36655 0 45px, transparent 47px),
+        radial-gradient(circle at 80% 25%, #38bdf855 0 65px, transparent 67px),
+        radial-gradient(circle at 25% 80%, #a78bfa55 0 55px, transparent 57px),
+        radial-gradient(circle at 85% 85%, #fb718555 0 75px, transparent 77px);
+    animation: bubbleMove 10s ease-in-out infinite alternate;
+}
+
+#chatMessages {
+    background: transparent !important;
+    position: relative;
+}

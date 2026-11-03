@@ -36,22 +36,56 @@
       <button id="openChatBtn">Open SHANU Chat</button>
     </div>
   </div>
-
-  <div class="login-container" id="chatScreen" hidden>
+<div class="login-container" id="chatListScreen" hidden>
     <h1>SHANU CHAT</h1>
+    <h3>Messages</h3>
 
+<button id="newChatBtn">+ New Chat</button>
+
+<div id="newChatForm" hidden>
     <input
-      id="receiverPhone"
-      type="tel"
-      maxlength="10"
-      placeholder="Friend's 10 digit number"
+        id="newFriendPhone"
+        type="tel"
+        maxlength="10"
+        placeholder="Enter 10 digit mobile number"
     >
+    <button id="createNewChatBtn">Start New Chat</button>
+</div>
 
-    <p>Enter friend's number and press Enter</p>
+ <div id="chatList">
+        <p>Your conversations will appear here.</p>
+    </div>
+</div>
+  <div class="login-container" id="chatScreen" hidden>
+
+<div class="chat-header">
+    <button id="backToChatsBtn">←</button>
+
+    <div class="friend-info">
+        <h2 id="friendName">SHANU CHAT</h2>
+        <p id="friendStatus">● Offline</p>
+    </div>
+</div>
+
+<input
+    id="receiverPhone"
+    type="tel"
+    maxlength="10"
+    placeholder="Friend's 10 digit number"
+>
+
 <button id="startChatBtn">Start Chat</button>
     <div id="chatMessages" style="height:300px; overflow-y:auto; border:1px solid #ccc; padding:10px;">
     </div>
 
+<input
+    type="file"
+    id="imageInput"
+    accept="image/*"
+    hidden
+>
+
+<button id="sendImageBtn">📷 Photo</button>
     <input
       id="messageInput"
       type="text"

@@ -1,0 +1,9 @@
+{
+  "appId": "com.shanu.chat",
+  "appName": "Aashi",
+  "webDir": "public",
+  "server": {
+    "url": "https://shanu-chat.onrender.com",
+    "cleartext": false
+  }
+}
